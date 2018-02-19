@@ -72,7 +72,7 @@ public class BlockFaceBehaviour : MonoBehaviour
         foreach (Vector3 skinVertex in skinVertices)
         {
             Debug.DrawRay(skinVertex, _normal * 0.5f, Color.red, 1f);
-            if (Physics.Raycast(skinVertex, _normal, _faceLength * 1f))
+            if (Physics.Raycast(skinVertex, _normal, _faceLength))
             {
                 return true;
             }
