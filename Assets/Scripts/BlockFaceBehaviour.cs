@@ -64,9 +64,9 @@ public class BlockFaceBehaviour : MonoBehaviour
 
         // we are firing our ray cast from within the cube
         Vector3[] skinVertices = new Vector3[4];
-        skinVertices[0] = worldCoord[0] - (a20 * skinWidth) + (b03 * skinWidth) - (_normal * 0.1f);
-        skinVertices[1] = worldCoord[1] - (c31 * skinWidth) + (d12 * skinWidth) - (_normal * 0.1f);
-        skinVertices[2] = worldCoord[2] + (a20 * skinWidth) + (b03 * skinWidth) - (_normal * 0.1f);
+        skinVertices[0] = worldCoord[0] - (a20 * skinWidth) + (b03 * skinWidth) - (_normal * skinWidth);
+        skinVertices[1] = worldCoord[1] - (c31 * skinWidth) + (d12 * skinWidth) - (_normal * skinWidth);
+        skinVertices[2] = worldCoord[2] + (a20 * skinWidth) + (b03 * skinWidth) - (_normal * skinWidth);
         skinVertices[3] = worldCoord[3] + (c31 * skinWidth) + (d12 * skinWidth) - (_normal * skinWidth);
 
         foreach (Vector3 skinVertex in skinVertices)
