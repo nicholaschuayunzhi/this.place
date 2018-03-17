@@ -81,7 +81,6 @@ public class CameraController : MonoBehaviour
         Vector3 cameraPosition = transform.position;
         Vector3 cameraToPlayerPosition = cameraPosition - PlayerObject.transform.position;
         cameraToPlayerPosition.y = 0;
-        float cameraToPlayerMagnitude = cameraToPlayerPosition.magnitude;
         foreach (FadeoutPlugin fadeoutPlugin in _fadeBlocks)
         {
             Vector3 cameraToBlockPosition =
