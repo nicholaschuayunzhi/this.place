@@ -11,7 +11,7 @@ public class BlockBehaviour : MonoBehaviour
     [Range(0f, 1f)]
     public float SkinToLengthRatio = 0.1f;
     public float InitialSpeed = 1f;
-
+    public ITransparentRenderer TransparentRenderer;
     
     private Vector3 _targetPosition;
     private float _currentSpeed;
@@ -26,6 +26,7 @@ public class BlockBehaviour : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        TransparentRenderer = GetComponent<ITransparentRenderer>();
         _blockFaceBehaviour = GetComponent<BlockFaceBehaviour>();
         _currentSpeed = InitialSpeed;
 

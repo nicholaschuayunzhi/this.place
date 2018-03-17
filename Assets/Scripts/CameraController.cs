@@ -71,21 +71,24 @@ public class CameraController : MonoBehaviour
             RotateMouseCamera();
         }
 
+ 
         UpdateFadingBlocks();
+
     }
 
     private void UpdateFadingBlocks()
     {
         Vector3 cameraPosition = transform.position;
         Vector3 cameraToPlayerPosition = cameraPosition - PlayerObject.transform.position;
+        cameraToPlayerPosition.y = 0;
         float cameraToPlayerMagnitude = cameraToPlayerPosition.magnitude;
         foreach (FadeoutPlugin fadeoutPlugin in _fadeBlocks)
         {
-            if ((cameraPosition - fadeoutPlugin.GetBlock().transform.position).magnitude <
-                cameraToPlayerMagnitude)
-                fadeoutPlugin.IsFading = false;
-            else
-                fadeoutPlugin.IsFading = true;
+            Vector3 cameraToBlockPosition =
+                cameraPosition - fadeoutPlugin.GetBlock().transform.position;
+            cameraToBlockPosition.y = 0;
+            fadeoutPlugin.SetIsFading(cameraToBlockPosition.magnitude < cameraToPlayerPosition.magnitude);
+
         }
     }
 
