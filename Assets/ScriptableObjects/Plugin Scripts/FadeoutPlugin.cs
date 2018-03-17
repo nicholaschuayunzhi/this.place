@@ -9,19 +9,28 @@ public class FadeoutPlugin : BlockPlugin
     public const float FadeMax = 1.0f;
     private Renderer _renderer;
     private State _fadeState = State.Opaque;
+    private CameraController _cameraController;
 
     public override void Plug(BlockBehaviour blockBehaviour)
     {
         base.Plug(blockBehaviour);
         _renderer = blockBehaviour.GetComponent<Renderer>();
-        CameraController cameraController = Camera.main.GetComponent<CameraController>();
+        _cameraController = Camera.main.GetComponent<CameraController>();
         _block = blockBehaviour;
-        cameraController.AddFadeoutTarget(this);
+        _cameraController.AddFadeoutTarget(this);
     }
 
     public BlockBehaviour GetBlock()
     {
         return _block;
+    }
+
+    private void OnDestroy()
+    {
+        if (_cameraController != null)
+        {
+            _cameraController.RemoveFadeoutTarget(this);
+        }
     }
 
     public override void OnUpdate()

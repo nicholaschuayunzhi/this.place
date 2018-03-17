@@ -38,6 +38,14 @@ public class BlockBehaviour : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        foreach (BlockPlugin plugin in _plugins)
+        {
+            Destroy(plugin);
+        }
+    }
+
     private void SubscribePlugin(BlockPlugin plugin)
     {
         plugin.Plug(this);

@@ -96,6 +96,11 @@ public class CameraController : MonoBehaviour
         _fadeBlocks.Add(fadeoutPlugin);
     }
 
+    public void RemoveFadeoutTarget(FadeoutPlugin fadeoutPlugin)
+    {
+        _fadeBlocks.Remove(fadeoutPlugin);
+    }
+
     private void RotateKeyboardCamera()
     {
         float moveAmount = Input.GetAxis("CameraControl") * Time.deltaTime * KeyboardSpeed;
