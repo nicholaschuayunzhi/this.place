@@ -68,8 +68,8 @@ public class PlayerMouse : MonoBehaviour
         foreach (Vector3 direction in _directions)
         {
             GameObject blockGameObject = GetGameObjInDir(direction);
-            BlockFace blockFaceOfNeighbouringBlock = BlockFaceMethods.BlockFaceFromNormal(-direction);
 
+            BlockFace blockFaceOfNeighbouringBlock = BlockFaceMethods.BlockFaceFromNormal(-direction);
             if (blockGameObject == null) continue;
 
             BlockFaceBehaviour blockFaceBehaviour = blockGameObject.GetComponent<BlockFaceBehaviour>();
