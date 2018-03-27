@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     public GameObject Player;
     public float AttentionRadius;
+    public float IdleTime;
 
     private EnemyController _enemyController;
     private BlockBehaviour _block;
@@ -60,7 +61,7 @@ public class EnemyAI : MonoBehaviour
     private IEnumerator WaitThenMove()
     {
         _state = EnemyState.Waiting;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(IdleTime);
 
         if (_state == EnemyState.Dead) yield break;
 

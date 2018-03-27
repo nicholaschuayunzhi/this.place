@@ -278,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   AttentionRadius: 3
+  IdleTime: 2
 --- !u!114 &114202935330602156
 MonoBehaviour:
   m_ObjectHideFlags: 1
