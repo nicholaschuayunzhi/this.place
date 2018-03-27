@@ -323,6 +323,7 @@ MonoBehaviour:
     m_Bits: 512
   Plugins:
   - {fileID: 11400000, guid: 5b8b66d25ec0bde42b870324961b5d70, type: 2}
+  Root: {fileID: 1081310232630108}
   SkinToLengthRatio: 0.1
   InitialSpeed: 1
 --- !u!212 &212884392673552770

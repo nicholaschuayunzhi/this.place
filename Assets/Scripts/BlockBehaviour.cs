@@ -7,6 +7,7 @@ public class BlockBehaviour : MonoBehaviour
 {
     public LayerMask CollidableLayers;
     public List<BlockPlugin> Plugins = new List<BlockPlugin>();
+    public GameObject Root;
 
     [Range(0f, 1f)]
     public float SkinToLengthRatio = 0.1f;
@@ -29,6 +30,8 @@ public class BlockBehaviour : MonoBehaviour
         TransparentRenderer = GetComponent<ITransparentRenderer>();
         _blockFaceBehaviour = GetComponent<BlockFaceBehaviour>();
         _currentSpeed = InitialSpeed;
+
+        Root = Root == null ? gameObject : Root;
 
         foreach (BlockPlugin plugin in Plugins)
         {
@@ -109,7 +112,7 @@ public class BlockBehaviour : MonoBehaviour
         bool hit = _blockFaceBehaviour.FireRaycastFromFace(SkinToLengthRatio, CollidableLayers, face);
         if (!hit)
         {
-            _targetPosition = GetParentTransform(transform).position + (face.GetNormal() * _blockFaceBehaviour.GetFaceLength());
+            _targetPosition = Root.transform.position + (face.GetNormal() * _blockFaceBehaviour.GetFaceLength());
             _isTranslating = true;
             _lastClickedFace = face;
             return true;
@@ -122,29 +125,17 @@ public class BlockBehaviour : MonoBehaviour
     {
         _currentSpeed += _acceleration * Time.deltaTime;
 
-        Vector3 translateDir = _targetPosition - transform.position;
+        Vector3 translateDir = _targetPosition - Root.transform.position;
         Vector3 translate = translateDir.normalized * Time.deltaTime * _currentSpeed;
 
-        if (Vector3.Distance(transform.position, _targetPosition) > translate.magnitude)
+        if (Vector3.Distance(Root.transform.position, _targetPosition) > translate.magnitude)
         {
-            GetParentTransform(transform).Translate(translate);
+            Root.transform.Translate(translate);
         }
         else
         {
-            GetParentTransform(transform).position = _targetPosition;
+            Root.transform.position = _targetPosition;
             _isTranslating = false;
-        }
-    }
-
-    Transform GetParentTransform(Transform transform)
-    {
-        if (transform.parent == null)
-        {
-            return transform;
-        }
-        else
-        {
-            return GetParentTransform(transform.parent);
         }
     }
 
