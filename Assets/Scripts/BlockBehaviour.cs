@@ -12,7 +12,7 @@ public class BlockBehaviour : MonoBehaviour
     public float SkinToLengthRatio = 0.1f;
     public float InitialSpeed = 1f;
     public ITransparentRenderer TransparentRenderer;
-    
+
     private Vector3 _targetPosition;
     private float _currentSpeed;
     private float _acceleration;
@@ -97,7 +97,7 @@ public class BlockBehaviour : MonoBehaviour
     }
 
     public bool MoveBlock(BlockFace face, float initialSpeed = 1, float acceleration = 0)
-    { 
+    {
         if (_isTranslating)
         {
             return false;
@@ -109,12 +109,12 @@ public class BlockBehaviour : MonoBehaviour
         bool hit = _blockFaceBehaviour.FireRaycastFromFace(SkinToLengthRatio, CollidableLayers, face);
         if (!hit)
         {
-            _targetPosition = transform.position + (face.GetNormal() * _blockFaceBehaviour.GetFaceLength());
+            _targetPosition = GetParentTransform(transform).position + (face.GetNormal() * _blockFaceBehaviour.GetFaceLength());
             _isTranslating = true;
             _lastClickedFace = face;
             return true;
         }
-        
+
         return false;
     }
 
@@ -127,15 +127,26 @@ public class BlockBehaviour : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _targetPosition) > translate.magnitude)
         {
-            transform.Translate(translate);
+            GetParentTransform(transform).Translate(translate);
         }
         else
         {
-            transform.position = _targetPosition;
+            GetParentTransform(transform).position = _targetPosition;
             _isTranslating = false;
         }
     }
 
+    Transform GetParentTransform(Transform transform)
+    {
+        if (transform.parent == null)
+        {
+            return transform;
+        }
+        else
+        {
+            return GetParentTransform(transform.parent);
+        }
+    }
 
     public void SetIsPlayerStandingOn(bool isPlayerStandingOn)
     {
