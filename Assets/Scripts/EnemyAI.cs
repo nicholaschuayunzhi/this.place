@@ -7,12 +7,13 @@ public class EnemyAI : MonoBehaviour
     public GameObject Player;
     public float AttentionRadius;
     public float IdleTime;
+    public BoxCollider TopCollider;
+
 
     private EnemyController _enemyController;
     private BlockBehaviour _block;
     private EnemyState _state = EnemyState.Idle;
     private Animator _animator;
-
     private BlockFace _face;
     // Use this for initialization
     void Start()
@@ -37,7 +38,7 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Idle:
                 StartCoroutine(WaitThenMove());
                 break;
-        }       
+        }
     }
 
     public void EnemyDeath()
@@ -45,6 +46,8 @@ public class EnemyAI : MonoBehaviour
         if (_state == EnemyState.Idle || _state == EnemyState.Waiting)
         {
             GetComponent<BlockBehaviour>().enabled = true;
+            // ensure does not eat any RayCasts
+            TopCollider.enabled = false;
             _state = EnemyState.Dead;
         }
     }
