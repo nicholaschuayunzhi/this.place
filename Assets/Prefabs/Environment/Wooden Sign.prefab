@@ -75,6 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4137032487362696}
   - component: {fileID: 23166343761278928}
+  - component: {fileID: 114046142800699640}
   m_Layer: 0
   m_Name: Wooden Sign
   m_TagString: Untagged
@@ -417,6 +418,18 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Message Here
+--- !u!114 &114046142800699640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461695410312342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5
 --- !u!114 &114753891050103798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,7 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754ee6509b28d974da41e8bebdd185e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCharacter: {fileID: 0}
   Canvas: {fileID: 1315579700795828}
 --- !u!114 &114758587043981160
 MonoBehaviour:

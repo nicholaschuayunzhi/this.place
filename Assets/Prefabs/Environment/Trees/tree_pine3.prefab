@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4794772601962098}
+  - component: {fileID: 114764784889852516}
   m_Layer: 0
   m_Name: tree_pine3
   m_TagString: Untagged
@@ -387,3 +388,15 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: ca3092a4c742cb443a2425d6969eb4fb, type: 3}
+--- !u!114 &114764784889852516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341684142918910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5

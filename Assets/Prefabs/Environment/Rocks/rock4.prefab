@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4407516662665280}
+  - component: {fileID: 114874616972312578}
   m_Layer: 0
   m_Name: rock4
   m_TagString: Untagged
@@ -126,3 +127,15 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 69e3d3ed772817a49bd7c76a37a4c083, type: 3}
+--- !u!114 &114874616972312578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876107558105420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5

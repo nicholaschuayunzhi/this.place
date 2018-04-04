@@ -3846,69 +3846,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7d44ed2d77b7334f921650fa2a77e93, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &169613724
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.487
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 48.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.5735764
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.8191521
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.29999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860786298362300, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -70
-      objectReference: {fileID: 0}
-    - target: {fileID: 23778249753435754, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 27da79d7358332748a8e2879850b422b, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 47e4e9d0ac9f1d94aa77e59dca4b0054, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &170509583
 Prefab:
   m_ObjectHideFlags: 0
@@ -29533,6 +29470,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1363985712}
+  - component: {fileID: 1363985713}
   m_Layer: 0
   m_Name: Bridge Front
   m_TagString: Untagged
@@ -29557,6 +29495,18 @@ Transform:
   m_Father: {fileID: 1651536057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363985713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363985711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5
 --- !u!1 &1372772332
 GameObject:
   m_ObjectHideFlags: 0
@@ -34170,6 +34120,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1569821064}
+  - component: {fileID: 1569821065}
   m_Layer: 0
   m_Name: Bridge Mid 1
   m_TagString: Untagged
@@ -34193,6 +34144,18 @@ Transform:
   m_Father: {fileID: 1651536057}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1569821065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569821063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5
 --- !u!1001 &1573404677
 Prefab:
   m_ObjectHideFlags: 0
@@ -43874,6 +43837,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1998206341}
+  - component: {fileID: 1998206342}
   m_Layer: 0
   m_Name: Bridge Mid 4
   m_TagString: Untagged
@@ -43897,6 +43861,18 @@ Transform:
   m_Father: {fileID: 1651536057}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998206342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1998206340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5
 --- !u!4 &1998757678 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4617227921920762, guid: a7d44ed2d77b7334f921650fa2a77e93,
@@ -47342,6 +47318,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2144260903}
+  - component: {fileID: 2144260904}
   m_Layer: 0
   m_Name: Bridge End
   m_TagString: Untagged
@@ -47366,6 +47343,18 @@ Transform:
   m_Father: {fileID: 1651536057}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2144260904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144260902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5
 --- !u!4 &2146008561 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4617227921920762, guid: a7d44ed2d77b7334f921650fa2a77e93,

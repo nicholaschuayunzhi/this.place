@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4716742164260314}
   - component: {fileID: 205420954993089172}
+  - component: {fileID: 114709224916517482}
   m_Layer: 0
   m_Name: clover
   m_TagString: Untagged
@@ -256,6 +257,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1806225598828336}
   m_Mesh: {fileID: 4300002, guid: ba3bae5ed4007eb4bb5ba1cbd1238406, type: 3}
+--- !u!114 &114709224916517482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1588757949999260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5
 --- !u!205 &205420954993089172
 LODGroup:
   m_ObjectHideFlags: 1

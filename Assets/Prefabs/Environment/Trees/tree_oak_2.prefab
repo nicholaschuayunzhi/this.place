@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4997963547725456}
+  - component: {fileID: 114415935136356484}
   m_Layer: 0
   m_Name: tree_oak_2
   m_TagString: Untagged
@@ -183,3 +184,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1941966933925074}
   m_Mesh: {fileID: 4300000, guid: 396a8aefb81666345a6f4ea1c6d7fcd8, type: 3}
+--- !u!114 &114415935136356484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1001483585207272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcaf9dd798a07a4eb1435cdc9fddda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInSpeed: 5
