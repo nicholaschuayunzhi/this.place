@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54660511212759794}
   - component: {fileID: 114765600802095192}
   - component: {fileID: 82882350870972052}
+  - component: {fileID: 114904471201131854}
   m_Layer: 9
   m_Name: StoneBlock
   m_TagString: Untagged
@@ -212,3 +213,16 @@ MonoBehaviour:
   Root: {fileID: 0}
   SkinToLengthRatio: 0.1
   InitialSpeed: 1
+  FadeInSpeed: 5
+--- !u!114 &114904471201131854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526104144880422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597bee63ad769be478daed22cff110f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransparentMaterial: {fileID: 2100000, guid: 565fd81533bcc5242b3b82395a256e0e, type: 2}

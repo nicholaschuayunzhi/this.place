@@ -14,6 +14,7 @@ public class BlockBehaviour : MonoBehaviour
     public float SkinToLengthRatio = 0.1f;
     public float InitialSpeed = 1f;
     public ITransparentRenderer TransparentRenderer;
+    public float FadeInSpeed = 5f;
 
     private Vector3 _targetPosition;
     private float _currentSpeed;
@@ -22,7 +23,11 @@ public class BlockBehaviour : MonoBehaviour
     private bool _isTranslating;
     private bool _isPlayerStandingOn;
     private UVMap _uvMap;
-    
+    private bool _isSpawned = false;
+    private bool _isSpawning = false;
+    private float _SpawnInT = 0;
+    private Vector3 _originalScale;
+
     private List<BlockPlugin> _plugins = new List<BlockPlugin>();
 
     private void Awake()
@@ -43,6 +48,28 @@ public class BlockBehaviour : MonoBehaviour
             SubscribePlugin(pluginInstance);
             _plugins.Add(pluginInstance);
         }
+
+        _originalScale = transform.localScale;
+
+        if (TransparentRenderer != null)
+        {
+            TransparentRenderer.SetTransparent(true);
+            TransparentRenderer.SetAlpha(_SpawnInT);
+        }
+        transform.localScale = Vector3.zero;
+        StartCoroutine(SpawnBlock());
+    }
+
+    IEnumerator SpawnBlock()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector3 playerTransform = player.transform.position;
+        Vector3 blockTransform = transform.position;
+        playerTransform.y = 0;
+        blockTransform.y = 0;
+        float timeToWait = Mathf.FloorToInt(Vector3.Distance(playerTransform, blockTransform));
+        yield return new WaitForSeconds(timeToWait * 0.2f);
+        _isSpawning = true;
     }
 
     private void OnDestroy()
@@ -101,6 +128,15 @@ public class BlockBehaviour : MonoBehaviour
 
     private void Update()
     {
+
+        if (!_isSpawned)
+        {
+            if (!_isSpawning) return;
+            HandleSpawnBlock();
+            return;
+        }
+
+
         if (_isTranslating)
         {
             TranslateBlock();
@@ -146,6 +182,26 @@ public class BlockBehaviour : MonoBehaviour
         return Vector3.zero;
     }
 
+    private void HandleSpawnBlock()
+    {
+        _SpawnInT += FadeInSpeed * Time.deltaTime;
+        transform.localScale = _originalScale * _SpawnInT;
+        if (TransparentRenderer != null)
+        {
+            TransparentRenderer.SetAlpha(_SpawnInT);
+        }
+
+        if (_SpawnInT >= 1)
+        {
+            transform.localScale = _originalScale;
+            if (TransparentRenderer != null)
+            {
+                TransparentRenderer.SetTransparent(false);
+            }
+
+            _isSpawned = true;
+        }
+    }
 
     public bool MoveBlock(BlockFace face, float initialSpeed = 1, float acceleration = 0)
     {

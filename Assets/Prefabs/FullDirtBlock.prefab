@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockMaterial: {fileID: 2100000, guid: 2f01df6c8207a49458daa52b792df19a, type: 2}
-  TransparentMaterial: {fileID: 2100000, guid: 01045ed71a9be0646a8f1dece78a2313, type: 2}
+  TransparentMaterial: {fileID: 2100000, guid: 625367655f9256e4183932f18d513e0e, type: 2}
   useDefaultMapping: 0
 --- !u!114 &114695155412564400
 MonoBehaviour:
@@ -228,3 +228,4 @@ MonoBehaviour:
   Root: {fileID: 0}
   SkinToLengthRatio: 0.1
   InitialSpeed: 1
+  FadeInSpeed: 5

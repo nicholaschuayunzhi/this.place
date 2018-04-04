@@ -145,4 +145,10 @@ public class UVMap : MonoBehaviour, ITransparentRenderer
 
         _renderer.material = transparency ? TransparentMaterial : BlockMaterial;
     }
+
+    public void SetAlpha(float a)
+    {
+        float alpha = Mathf.Clamp(a, 0, 100);
+        _renderer.material.color = new Color(_renderer.material.color.r, _renderer.material.color.g, _renderer.material.color.b, alpha);
+    }
 }

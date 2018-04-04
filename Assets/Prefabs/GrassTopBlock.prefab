@@ -214,6 +214,7 @@ MonoBehaviour:
   Root: {fileID: 0}
   SkinToLengthRatio: 0.1
   InitialSpeed: 1
+  FadeInSpeed: 5
 --- !u!114 &114520203260517718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,5 +227,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockMaterial: {fileID: 2100000, guid: cf6ec2771fe02f74f8860962de65e2d4, type: 2}
-  TransparentMaterial: {fileID: 0}
+  TransparentMaterial: {fileID: 2100000, guid: 05b2fff3935a24a4d88c92570c2324cf, type: 2}
   useDefaultMapping: 0
