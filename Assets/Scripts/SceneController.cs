@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -105,6 +106,34 @@ public class SceneController : MonoBehaviour
         {
             _isReloading = true;
             StartCoroutine(ReloadScene());
+        }
+    }
+
+    public void LoadNewScene(String sceneName)
+    {
+        UnloadAllScenes();
+        _isLoadedToPosition = true;
+        _toLoad = Scenes;
+        _toLoad.Add(sceneName);
+        Load("Player");
+        
+        int index = _toLoad.IndexOf(sceneName);
+        Debug.Log(index);
+        _toLoad = _toLoad.GetRange(index, _toLoad.Count - index);
+        Load(_toLoad[0]);
+        _sceneIndex = 0;
+    }
+
+    void UnloadAllScenes()
+    {
+        Scene currentScene = gameObject.scene;
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene sceneAtI = SceneManager.GetSceneAt(i);
+            if (sceneAtI == currentScene) continue;
+            if (!sceneAtI.isLoaded) continue;
+            if (sceneAtI.name == "Player") continue;
+            SceneManager.UnloadSceneAsync(sceneAtI);
         }
     }
 

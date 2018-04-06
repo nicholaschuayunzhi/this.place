@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -86,5 +87,10 @@ public class Menu : MonoBehaviour
     {
         menuToAdd.SetActive(true);
         menuToRemove.SetActive(false);
+    }
+
+    public void JumpToLevel(string sceneName)
+    {
+        SceneController.Instance.LoadNewScene(sceneName);
     }
 }
