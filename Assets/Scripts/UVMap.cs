@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+[ExecuteInEditMode]
 public class UVMap : MonoBehaviour, ITransparentRenderer
 {
 
@@ -17,8 +18,8 @@ public class UVMap : MonoBehaviour, ITransparentRenderer
     {
         _renderer = GetComponent<Renderer>();
         _renderer.material = BlockMaterial;
-        _mesh = GetComponent<MeshFilter>().mesh;
-        _color = _renderer.material.GetColor("_Color");
+        _mesh = GetComponent<MeshFilter>().sharedMesh;
+        _color = _renderer.sharedMaterial.GetColor("_Color");
         if (!useDefaultMapping)
         {
             SetUVs();
