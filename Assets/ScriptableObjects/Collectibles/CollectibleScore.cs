@@ -23,6 +23,70 @@ public class CollectibleScore : ScriptableObject
         SecondaryCollectiblesCollected = _secondaryRecord;
     }
 
+    public void ResetScore()
+    {
+        _primaryRecord = PrimaryCollectiblesCollected;
+        _secondaryRecord = SecondaryCollectiblesCollected;
+
+        List<bool> tempList = new List<bool>();
+        foreach (bool cs in PrimaryCollectiblesCollected)
+        {
+            tempList.Add(false);
+        }
+        _primaryRecord = tempList;
+
+        tempList = new List<bool>();
+        foreach (bool cs in SecondaryCollectiblesCollected)
+        {
+            tempList.Add(false);
+        }
+        _secondaryRecord = tempList;
+    }
+
+    public List<bool> WipeScore()
+    {
+        if (IsPuzzle)
+        {
+            List<bool> tempList = new List<bool>();
+            foreach (bool cs in PrimaryCollectiblesCollected)
+            {
+                tempList.Add(false);
+            }
+            PrimaryCollectiblesCollected = tempList;
+
+            tempList = new List<bool>();
+            foreach (bool cs in SecondaryCollectiblesCollected)
+            {
+                tempList.Add(false);
+            }
+            SecondaryCollectiblesCollected = tempList;
+
+            tempList = new List<bool>();
+            foreach (bool cs in PrimaryCollectiblesCollected)
+            {
+                tempList.Add(false);
+            }
+            _primaryRecord = tempList;
+
+            tempList = new List<bool>();
+            foreach (bool cs in SecondaryCollectiblesCollected)
+            {
+                tempList.Add(false);
+            }
+            _secondaryRecord = tempList;
+            return new List<bool>(PrimaryCollectiblesCollected);
+        }
+
+        List<bool> toReturn = new List<bool>();
+
+        foreach (CollectibleScore cs in SubScores)
+        {
+            toReturn.AddRange(cs.WipeScore());
+        }
+
+        return toReturn;
+    }
+
     public void StartRecordingScore()
     {
         _primaryRecord = new List<bool>(PrimaryCollectiblesCollected);
@@ -53,6 +117,40 @@ public class CollectibleScore : ScriptableObject
         foreach (CollectibleScore cs in SubScores)
         {
             toReturn.AddRange(cs.GetPrimaryCollectedInStage());
+        }
+
+        return toReturn;
+    }
+    
+    public List<bool> GetPrimaryRecordInStage()
+    {
+        if (IsPuzzle)
+        {
+            return new List<bool>(_primaryRecord);
+        }
+
+        List<bool> toReturn = new List<bool>();
+
+        foreach (CollectibleScore cs in SubScores)
+        {
+            toReturn.AddRange(cs.GetPrimaryRecordInStage());
+        }
+
+        return toReturn;
+    }
+
+    public List<bool> GetSecondaryRecordInStage()
+    {
+        if (IsPuzzle)
+        {
+            return new List<bool>(_secondaryRecord);
+        }
+
+        List<bool> toReturn = new List<bool>();
+
+        foreach (CollectibleScore cs in SubScores)
+        {
+            toReturn.AddRange(cs.GetSecondaryRecordInStage());
         }
 
         return toReturn;

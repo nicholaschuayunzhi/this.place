@@ -8,17 +8,20 @@ public class EnemyAI : MonoBehaviour
     public float AttentionRadius;
     public float IdleTime;
     public BoxCollider TopCollider;
+    public LayerMask CollidableLayers;
 
 
     private EnemyController _enemyController;
     private EnemyState _state = EnemyState.Idle;
     private Animator _animator;
     private BlockFace _face;
+    private Renderer _renderer;
     // Use this for initialization
     void Awake()
     {
         _animator = GetComponent<Animator>();
         _enemyController = GetComponentInParent<EnemyController>();
+        _renderer = GetComponentInChildren<Renderer>();
     }
 
     private void Start()
@@ -84,13 +87,46 @@ public class EnemyAI : MonoBehaviour
     private void MoveEnemy(Vector3 enemyToPlayer)
     {
         _state = EnemyState.Moving;
-        Vector3 dir = Mathf.Abs(enemyToPlayer.x) > Mathf.Abs(enemyToPlayer.z) ?
-            Vector3.right * Mathf.Sign(enemyToPlayer.x) :
-            Vector3.forward * Mathf.Sign(enemyToPlayer.z);
+        Vector3 xDir = Vector3.right * Mathf.Sign(enemyToPlayer.x);
+        Vector3 zDir = Vector3.forward * Mathf.Sign(enemyToPlayer.z);
+
+        bool canMoveInX = Physics.Raycast(transform.position + xDir, Vector3.down, 1f, CollidableLayers);
+        bool canMoveInZ = Physics.Raycast(transform.position + zDir, Vector3.down, 1f, CollidableLayers);
+        if (!canMoveInX && !canMoveInZ)
+        {
+            _state = EnemyState.Idle;
+            return;
+        }
+        Vector3 dir = Vector3.zero;
+        if (Mathf.Abs(enemyToPlayer.x) > Mathf.Abs(enemyToPlayer.z))
+        {
+            if (canMoveInX)
+            {
+                dir = xDir;
+            }
+            else
+            {
+                dir = zDir;
+            }
+        }
+        else
+        {
+            if (canMoveInZ)
+            {
+                dir = zDir;
+            }
+            else
+            {
+                dir = xDir;
+            }
+        }
+
+
         BlockFace face = BlockFaceMethods.BlockFaceFromNormal(dir.normalized);
         _enemyController.LookAtFaceDir(face);
         _face = face;
         _animator.SetTrigger("Bounce");
+        _renderer.material.color = Color.red + Color.white;
     }
 
     // Animation Events found in Bounce
@@ -102,6 +138,7 @@ public class EnemyAI : MonoBehaviour
     private void OnBounceEnd()
     {
         _state = EnemyState.Idle;
+        _renderer.material.color = Color.white;
     }
 
     private enum EnemyState
