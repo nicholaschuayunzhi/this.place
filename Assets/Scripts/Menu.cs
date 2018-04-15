@@ -34,7 +34,9 @@ public class Menu : MonoBehaviour
     private PlayerController _playerController;
 
     private CameraController _camera;
-    private bool _menuShowing = true;
+
+    [HideInInspector]
+    public bool _menuShowing = true;
     private GameObject _sceneMenu;
     private GameObject _mainMenu;
     private GameObject _ui;
